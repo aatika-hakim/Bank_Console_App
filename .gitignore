@@ -11,6 +11,9 @@ node_modules/
 # Logs
 logs/
 
+# ignore json file 
+package-lock.json
+
 # macOS
 .DS_Store
 
