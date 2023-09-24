@@ -1,4 +1,3 @@
-// src/main.ts
 import inquirer from 'inquirer';
 const accounts = {};
 // Create a new account
@@ -7,21 +6,21 @@ async function createAccount() {
         {
             type: 'input',
             name: 'accountNumber',
-            message: 'Enter account number:',
+            message: 'Enter Your Account Number:',
         },
         {
             type: 'input',
-            name: 'accountHolder',
-            message: 'Enter account holder name:',
+            name: 'userID',
+            message: 'Enter Your Name:',
         },
     ]);
-    const { accountNumber, accountHolder } = answers;
+    const { accountNumber, userID } = answers;
     if (accounts[accountNumber]) {
         console.log('Account already exists with this account number.');
     }
     else {
-        accounts[accountNumber] = { accountNumber, accountHolder, balance: 0 };
-        console.log(`Account created for ${accountHolder} with account number ${accountNumber}.`);
+        accounts[accountNumber] = { accountNumber, userID, balance: 0 };
+        console.log(`Account created for ${userID} with account number ${accountNumber}.`);
     }
     showMainMenu();
 }
@@ -53,7 +52,7 @@ async function deposit() {
     }
     showMainMenu();
 }
-// Withdraw from an account
+// Withdraw amount
 async function withdraw() {
     const answers = await inquirer.prompt([
         {
@@ -96,7 +95,7 @@ async function checkBalance() {
         console.log('Account does not exist.');
     }
     else {
-        console.log(`Account balance for ${account.accountHolder}: $${account.balance}`);
+        console.log(`Account balance for ${account.userID}: $${account.balance}`);
     }
     showMainMenu();
 }
@@ -127,19 +126,18 @@ function showMainMenu() {
                 checkBalance();
                 break;
             case 'Exit':
-                console.log('Exiting...');
+                console.log('Exiting App');
                 process.exit(0);
                 break;
             default:
-                console.log('Invalid choice. Please select a valid option.');
+                console.log('Invalid choice. Please select from given choices.');
                 showMainMenu();
                 break;
         }
     });
 }
-// Main entry point
-function main() {
+function startApp() {
     console.log('Welcome to MyBank Console App');
     showMainMenu();
 }
-main();
+startApp();
