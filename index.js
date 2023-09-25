@@ -1,3 +1,4 @@
+#! /user/bin/env node
 import inquirer from 'inquirer';
 const accounts = {};
 // Create a new account
