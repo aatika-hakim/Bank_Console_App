@@ -70,14 +70,14 @@ async function withdraw() {
     const { accountNumber, amount } = answers;
     const account = accounts[accountNumber];
     if (!account) {
-        console.log('Account does not exist.');
+        console.log('Account not exists.');
     }
     else if (amount <= 0 || amount > account.balance) {
         console.log('Invalid amount for withdrawal or insufficient balance.');
     }
     else {
         account.balance -= amount;
-        console.log(`Withdrawn $${amount} from account ${accountNumber}. New balance: $${account.balance}`);
+        console.log(`Withdrawn $${amount} from the account ${accountNumber}. New balance: $${account.balance}`);
     }
     showMainMenu();
 }
