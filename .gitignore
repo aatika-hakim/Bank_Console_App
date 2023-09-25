@@ -19,6 +19,3 @@ package-lock.json
 
 # Windows
 Thumbs.db
-
-# TypeScript configuration
-tsconfig.json
